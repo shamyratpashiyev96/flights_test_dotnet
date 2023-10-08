@@ -34,4 +34,6 @@ public class AppDbContext: DbContext
     }
 
     public DbSet<Airport> Airports { get; set; }
+
+    public DbSet<Flight> Flights { get; set; }
 }
