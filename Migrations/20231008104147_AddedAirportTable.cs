@@ -20,8 +20,8 @@ namespace testApp.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
-                    City = table.Column<string>(type: "longtext", nullable: true),
-                    Code = table.Column<string>(type: "longtext", nullable: true)
+                    City = table.Column<string>(type: "VARCHAR(2000)", nullable: true),
+                    Code = table.Column<string>(type: "VARCHAR(2000)", nullable: false)
                 },
                 constraints: table =>
                 {

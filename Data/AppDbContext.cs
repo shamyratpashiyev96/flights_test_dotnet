@@ -14,5 +14,24 @@ public class AppDbContext: DbContext
         optionsBuilder.UseMySQL("server=localhost;database=dummy_db;user=dummy_user;password=PASSword123$%");
     }
 
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        base.OnModelCreating(modelBuilder);
+        List<Airport> airports = new(){
+            new Airport { City = "New York", Code = "JFK" },
+            new Airport { City = "London", Code = "HTR" },
+            new Airport { City = "Paris", Code = "CDH" },
+            new Airport { City = "Rome", Code = "RMA" },
+            new Airport { City = "Shanghai", Code = "SHA" },
+        };
+
+        int airport_id = 0;
+        foreach(var airport in airports){
+            airport_id++;
+            airport.Id = airport_id;
+            modelBuilder.Entity<Airport>().HasData(airport);
+        }
+    }
+
     public DbSet<Airport> Airports { get; set; }
 }
