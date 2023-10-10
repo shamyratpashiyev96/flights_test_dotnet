@@ -29,6 +29,14 @@ public class AppDbContext: DbContext
             airports[i].Id = i + 1;
             modelBuilder.Entity<Airport>().HasData(airports[i]);
         }
+
+        for(int i = 0; i < 10; i++){
+            int airportId1 = new Random().Next(1, airports.Count);
+            int airportId2 = new Random().Next(1, airports.Count);
+            
+            modelBuilder.Entity<Flight>().HasData(
+                new {Id = i + 1, OriginId=airportId1, DestinationId=airportId1});
+        }
     }
 
     public DbSet<Airport> Airports { get; set; }

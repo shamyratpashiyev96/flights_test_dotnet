@@ -6,7 +6,7 @@ namespace testApp;
 public class Flight
 {
     [Key]
-    public decimal Id { get; set; }
+    public int Id { get; set; }
 
     [Required]
     public Airport Origin { get; set; }
