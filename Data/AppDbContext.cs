@@ -25,11 +25,9 @@ public class AppDbContext: DbContext
             new Airport { City = "Shanghai", Code = "SHA" },
         };
 
-        int airport_id = 0;
-        foreach(var airport in airports){
-            airport_id++;
-            airport.Id = airport_id;
-            modelBuilder.Entity<Airport>().HasData(airport);
+        for(int i = 0; i < airports.Count; i++){
+            airports[i].Id = i + 1;
+            modelBuilder.Entity<Airport>().HasData(airports[i]);
         }
     }
 
