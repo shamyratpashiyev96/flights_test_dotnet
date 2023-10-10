@@ -17,6 +17,7 @@ public class AppDbContext: DbContext
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
+        
         List<Airport> airports = new(){
             new Airport { City = "New York", Code = "JFK" },
             new Airport { City = "London", Code = "HTR" },
@@ -42,4 +43,6 @@ public class AppDbContext: DbContext
     public DbSet<Airport> Airports { get; set; }
 
     public DbSet<Flight> Flights { get; set; }
+
+    public DbSet<Passenger> Passengers { get; set; }
 }
