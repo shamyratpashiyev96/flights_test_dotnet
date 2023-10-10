@@ -38,6 +38,25 @@ public class AppDbContext: DbContext
             modelBuilder.Entity<Flight>().HasData(
                 new {Id = i + 1, OriginId=airportId1, DestinationId=airportId1});
         }
+
+        List<Passenger> passengers = new(){
+            new Passenger{ FirstName = "John", LastName = "Doe" },
+            new Passenger{ FirstName = "Joshua", LastName = "Abigale" },
+            new Passenger{ FirstName = "Lily", LastName = "Fletcher" },
+            new Passenger{ FirstName = "Rose", LastName = "Gamer" },
+            new Passenger{ FirstName = "Carlisle", LastName = "Johnson" },
+            new Passenger{ FirstName = "Isabella", LastName = "Watson" },
+            new Passenger{ FirstName = "Harry", LastName = "Grint" },
+            new Passenger{ FirstName = "Emily", LastName = "Dares" },
+            new Passenger{ FirstName = "David", LastName = "Miles" },
+            new Passenger{ FirstName = "Dean", LastName = "Simons" },
+        };
+        for(int i = 0; i < passengers.Count; i++){
+            passengers[i].Id = i + 1;
+            modelBuilder.Entity<Passenger>().HasData(
+                passengers[i]
+            );
+        }
     }
 
     public DbSet<Airport> Airports { get; set; }
